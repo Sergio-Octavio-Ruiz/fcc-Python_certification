@@ -1,4 +1,4 @@
-# Second try
+# Third try
 full_dot = '●'
 empty_dot = '○'
 
@@ -13,12 +13,13 @@ def name_validation(name):
         return 'The character name should not contain spaces'
 
 def stats_validation(strength, intelligence, charisma):
-    if not isinstance(strength, int) or not isinstance(intelligence, int) or not isinstance(charisma, int):
-        return 'All stats should be integers'
-    if strength < 1 or intelligence < 1 or charisma < 1:
-        return 'All stats should be no less than 1'
-    if strength > 4 or intelligence > 4 or charisma > 4:
-        return 'All stats should be no more than 4'
+    for stat in (strength, intelligence, charisma):
+        if not isinstance(stat, int):
+            return 'All stats should be integers'
+        if stat < 1:
+            return 'All stats should be no less than 1'
+        if stat > 4:
+            return 'All stats should be no more than 4'
     if strength + intelligence + charisma != 7:
         return 'The character should start with 7 points'
 
