@@ -1,10 +1,15 @@
-def number_pattern(n):
-    if not isinstance(n, int): return 'Argument must be an integer value.'
-    if n < 1: return 'Argument must be an integer greater than 0.'
-    number_string = ''
-    for i in range(1, n+1):
-        if i < n: number_string += str(i) + ' '
-        elif i == n: number_string += str(i)
-    return number_string
+def data_validation(n):
+    if not isinstance(n, int): 
+        return 'Argument must be an integer value.'
+    if n < 1: 
+        return 'Argument must be an integer greater than 0.'
 
-print(number_pattern('a'))
+def number_pattern(n):
+    data_error = data_validation(n)
+    if data_error: 
+        return data_error
+
+    number_string = [str(i) for i in range(1, n+1)]
+    return ''.join(number_string)
+
+print(number_pattern(3luke))
